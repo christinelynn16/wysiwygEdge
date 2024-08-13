@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "http://localhost:3000/bin/franklin.delivery/christinelynn16/wysiwygEdge/main"
+    url: "https://author-p66217-e731910.adobeaemcloud.com/bin/franklin.delivery/christinelynn16/wysiwygEdge/main"
     type: "markup"
     suffix: ".html"
