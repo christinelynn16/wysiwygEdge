@@ -214,8 +214,7 @@
         "label": "Reference"
       }
     ]
-  },
-  [
+  }, 
   	{
     	"id": "aem-content-fragment",
     	"fields": [
@@ -228,5 +227,4 @@
       	}
     	]
   	}
-  ]
 ]
