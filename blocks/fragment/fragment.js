@@ -18,6 +18,26 @@ import {
  * @returns {HTMLElement} The root element of the fragment
  */
 export async function loadFragment(path) {
+
+  if(path){
+    const query = `query getEmployee($path: String!){employeefragmentByPath(_path: $path) {item {employeeImage {on ImageRef{_path}}employeeName,employeeTitle}}}`;
+    fetch('/content/graphql/wysiwtg/endpoint.json', 
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query }),
+      }
+    )
+    .then(response => response.json())
+    
+    .then(data => console.log(data))
+
+    .catch(error => console.error(error));
+  }
+
+  
   if (path && path.startsWith('/')) {
     // eslint-disable-next-line no-param-reassign
     path = path.replace(/(\.plain)?\.html/, '');
