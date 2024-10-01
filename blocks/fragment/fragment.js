@@ -21,7 +21,7 @@ export async function loadFragment(path) {
 
   if(path){
     const query = `query getEmployee($path: String!){employeefragmentByPath(_path: $path) {item {employeeImage {on ImageRef{_path}}employeeName,employeeTitle}}}`;
-    fetch('/content/graphql/wysiwyg/endpoint.json', 
+    fetch('/content/cq:graphql/wysiwygEdge/endpoint.json', 
       {
         method: 'POST',
         headers: {
