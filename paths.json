@@ -2,6 +2,6 @@
   "mappings": [
     "/content/wysiwygEdge/:/",
     "/content/wysiwygEdge/configuration:/.helix/config.json",
-    "/content/wysiwygEdge/employeedata:/employeedata.json"
+    "/content/wysiwygEdge/employeedata.json:/employeedata.json"
   ]
 }
