@@ -25,6 +25,7 @@ export async function loadFragment(path) {
     if (resp.ok) {
 
       const json = await resp.json();
+      console.log("-------JSON--------> {}",json);
       
       const main = document.createElement('main');
       main.innerHTML = await resp.text();
