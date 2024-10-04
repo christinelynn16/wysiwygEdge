@@ -21,8 +21,10 @@ export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
     // eslint-disable-next-line no-param-reassign
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
+>>>>>>> parent of 28dac15 (Update fragment.js)
     /* eslint-disable no-unused-vars */
     //const jsonSt = '.json';
     //const baseURL = document.location.origin;
