@@ -27,7 +27,7 @@ export async function loadFragment(path) {
     const resp2 = await fetch(`${path2}`);
     const resp3 = await fetch(`${path3}`);
 
-    if (resp.ok && resp2.ok) {
+    if (resp.ok && resp2.ok && resp3.ok) {
       const main = document.createElement('main');
       main.innerHTML = await resp.text();
 
