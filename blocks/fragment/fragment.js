@@ -23,6 +23,10 @@ export async function loadFragment(path) {
     path = path.replace(/(\.plain)?\.html/, '');
     const resp = await fetch(`${path}.plain.html`);
     const resp2 = await fetch(`${path}.json`);
+    const pathJSON = path.replace('/content/dam', '/api/assets') + '.json';
+    const resp3 = await fetch(pathJSON);
+    console.log(resp3);
+    
     if (resp.ok) {
       const json = await resp.json();
       console.log(resp2);
