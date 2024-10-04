@@ -24,6 +24,7 @@ export async function loadFragment(path) {
 <<<<<<< HEAD
     
 =======
+=======
 >>>>>>> parent of 28dac15 (Update fragment.js)
     /* eslint-disable no-unused-vars */
     //const jsonSt = '.json';
