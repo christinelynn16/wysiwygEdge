@@ -6,10 +6,11 @@
 
 import {
   decorateMain,
+  moveInstrumentation,
 } from '../../scripts/scripts.js';
 
 import {
-  loadBlocks,
+  loadSections,
 } from '../../scripts/aem.js';
 
 /**
@@ -19,17 +20,8 @@ import {
  */
 export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
-    // eslint-disable-next-line no-param-reassign
-    path = path.replace(/(\.plain)?\.html/, '');
     const resp = await fetch(`${path}.plain.html`);
-    
-    const pathJSON = path.replace('/content/dam', '/api/assets') + '.json';
-    const resp2 = await fetch(`${pathJSON}`);
-    console.log(resp2);    
     if (resp.ok) {
-      const json = await resp.json();
-      console.log(resp2);
-
       const main = document.createElement('main');
       main.innerHTML = await resp.text();
 
@@ -43,13 +35,16 @@ export async function loadFragment(path) {
       resetAttributeBase('source', 'srcset');
 
       decorateMain(main);
-      await loadBlocks(main);
+      await loadSections(main);
       return main;
     }
   }
   return null;
 }
 
+/**
+ * @param {Element} block
+ */
 export default async function decorate(block) {
   const link = block.querySelector('a');
   const path = link ? link.getAttribute('href') : block.textContent.trim();
@@ -57,9 +52,9 @@ export default async function decorate(block) {
   if (fragment) {
     const fragmentSection = fragment.querySelector(':scope .section');
     if (fragmentSection) {
-      block.classList.add(...fragmentSection.classList);
-      block.classList.remove('section');
-      block.replaceChildren(...fragmentSection.childNodes);
+      block.closest('.section').classList.add(...fragmentSection.classList);
+      moveInstrumentation(block, block.parentElement);
+      block.closest('.fragment').replaceWith(...fragment.childNodes);
     }
   }
 }
