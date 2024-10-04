@@ -23,8 +23,6 @@ export async function loadFragment(path) {
     // eslint-disable no-unused-vars
     const jsonSt = '.json';
     const baseURL = document.location.ancestorOrigins.text;
-    console.log(jsonSt);
-    console.log(baseURL);
 
     path = path.replace(/(\.plain)?\.html/, '');
     const path2 = path.replace('/content/dam', '/api/assets');
@@ -33,7 +31,7 @@ export async function loadFragment(path) {
     const resp2 = await fetch(`${path2}`);
     const resp3 = await fetch(`${newpath}`);
     /* eslint-enable no-unused-vars */
-
+    
     if (resp.ok && resp2.ok && resp3.ok) {
       const main = document.createElement('main');
       main.innerHTML = await resp.text();
