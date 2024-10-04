@@ -23,8 +23,8 @@ export async function loadFragment(path) {
     const jsonSt = '.json';
     const baseURL = document.location.origin;
     
-    if (jsonSt.ok) { console.log("Good"); }
-    if (baseURL.ok) { console.log("Good"); }
+    if (jsonSt.ok) { console.log('Good'); }
+    if (baseURL.ok) { console.log('Good'); }
     
     path = path.replace(/(\.plain)?\.html/, '');
     const path2 = path.replace('/content/dam', '/api/assets').concat('.json');
