@@ -22,6 +22,7 @@ export async function loadFragment(path) {
     // eslint-disable-next-line no-param-reassign
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 =======
@@ -31,6 +32,14 @@ export async function loadFragment(path) {
     //const baseURL = document.location.origin;
     //console.log(jsonSt);
     //console.log(baseURL);
+=======
+    path = path.replace(/(\.plain)?\.html/, '');
+    const path2 = path.replace('/content/dam', '/api/assets').concat(`.json`);
+    const path3 = document.location.ancestorOrigins.text.concat(path2);
+    const resp = await fetch(`${path}.plain.html`);
+    const resp2 = await fetch(`${path2}`);
+    const resp3 = await fetch(`${path3}`);
+>>>>>>> parent of 8346c8f (Update fragment.js)
 
 >>>>>>> parent of 28dac15 (Update fragment.js)
     path = path.replace(/(\.plain)?\.html/, '');
