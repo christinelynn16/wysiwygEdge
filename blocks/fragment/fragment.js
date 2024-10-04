@@ -29,7 +29,7 @@ export async function loadFragment(path) {
 
     const resp = await fetch(`${path}.plain.html`);
     const resp2 = await fetch(`${path2}`);
-    const resp3 = await fetch(${path3});
+    const resp3 = await fetch(`${newpath}`);
 
     if (resp.ok && resp2.ok && resp3.ok) {
       const main = document.createElement('main');
