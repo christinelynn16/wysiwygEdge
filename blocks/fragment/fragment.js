@@ -22,7 +22,6 @@ export async function loadFragment(path) {
     // eslint-disable-next-line no-param-reassign
     const jsonSt = '.json';
     const baseURL = document.location.origin;
-    
     if (jsonSt.ok) { console.log('Good'); }
     if (baseURL.ok) { console.log('Good'); }
     
