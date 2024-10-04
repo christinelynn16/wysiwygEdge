@@ -20,7 +20,7 @@ import {
 export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
     // eslint-disable-next-line no-param-reassign
-        path = path.replace(/(\.plain)?\.html/, '');
+    path = path.replace(/(\.plain)?\.html/, '');
     const path2 = path.replace('/content/dam', '/api/assets');
     const resp = await fetch(`${path}.plain.html`);
     const resp2 = await fetch(`${path2}`);
