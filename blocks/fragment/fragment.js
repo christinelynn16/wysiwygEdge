@@ -29,7 +29,7 @@ export async function loadFragment(path) {
     const windowLocation = window.location.origin;
     const response = await fetch(path2, {
       headers: myHeaders,
-      baseURL: windowLocation
+      baseURL: windowLocation,
     });
     const fullURL2 = `${windowLocation}${path2}`;
     const resp = await fetch(`${path}.plain.html`);
