@@ -28,6 +28,7 @@ export async function loadFragment(path) {
     const fullURL2 = `${windowLocation}${path2}`;
     const resp = await fetch(`${path}.plain.html`);
     const resp2 = await fetch(fullURL2);
+    const resp3 = await fetch('https://author-p66217-e731910.adobeaemcloud.com/api/assets/wysiwygEdge/alex.json');
     /* eslint-enable no-unused-vars */
     if (resp.ok && resp2.ok) {
       const main = document.createElement('main');
