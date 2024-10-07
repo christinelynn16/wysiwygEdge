@@ -27,7 +27,7 @@ export async function loadFragment(path) {
     const baseURL = window.location.origin;
     const url2 = new URL(path2, baseURL);
     const resp = await fetch(`${path}.plain.html`);
-    const resp2 = await fetch(`${url2}`);
+    const resp2 = await fetch(`${url2.href}`);
     /* eslint-enable no-unused-vars */
     if (resp.ok && resp2.ok) {
       const main = document.createElement('main');
