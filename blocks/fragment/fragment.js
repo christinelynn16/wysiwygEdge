@@ -24,7 +24,7 @@ export async function loadFragment(path) {
     path = path.replace(/(\.plain)?\.html/, '');
     const path2 = path.replace('/content/dam', '/api/assets');
     const baseURL = window.location.hostname;
-    const url2 = new URL(path2, baseURL);
+    const url2 = new URL(path2, new URL(path, window.location)).href;
     const resp = await fetch(`${path}.plain.html`);
     const resp2 = await fetch(`${url2}`);
     /* eslint-enable no-unused-vars */
