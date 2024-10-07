@@ -35,7 +35,7 @@ export async function loadFragment(path) {
     const resp = await fetch(`${path}.plain.html`);
     const resp2 = await fetch(fullURL2);
     const resp3 = await fetch('https://author-p66217-e731910.adobeaemcloud.com/api/assets/wysiwygEdge/alex.json');
-    const pathEmp = '/content/dam/wysiwygEdge/employeeData';
+    const pathEmp = '/content/wysiwygEdge/employeedata';
     const fullEmp = pathEmp.concat('.json');
     const resp4 = await fetch(fullEmp, windowLocation);
     /* eslint-enable no-unused-vars */
