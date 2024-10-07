@@ -25,9 +25,10 @@ export async function loadFragment(path) {
     const path2a = path.replace('/content/dam', '/api/assets');
     const path2 = path2a.concat('.json');
     const baseURL = window.location.origin;
+    const baseURL2 = baseURL.concat(path2);
     const url2 = new URL(path2, baseURL);
     const resp = await fetch(`${path}.plain.html`);
-    const resp2 = await fetch(`${url2.href}`);
+    const resp2 = await fetch(baseURL2);
     /* eslint-enable no-unused-vars */
     if (resp.ok && resp2.ok) {
       const main = document.createElement('main');
