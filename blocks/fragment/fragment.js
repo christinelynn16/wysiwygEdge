@@ -18,7 +18,7 @@ import {
  * @returns {HTMLElement} The root element of the fragment
  */
 export async function loadFragment(path) {
-  if (path && path.startsWith('/')) 
+  if (path && path.startsWith('/')) {
     /* eslint-disable no-unused-vars */
     // eslint-disable-next-line no-param-reassign
     path = path.replace(/(\.plain)?\.html/, '');
