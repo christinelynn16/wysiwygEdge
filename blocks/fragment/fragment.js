@@ -26,11 +26,11 @@ export async function loadFragment(path) {
     const path2 = path2a.concat('.json');
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
+    const windowLocation = window.location.origin;
     const response = await fetch(path2, {
       headers: myHeaders,
-      baseURL: window.location.origin
+      baseURL: windowLocation
     });
-    const windowLocation = window.location.origin;
     const fullURL2 = `${windowLocation}${path2}`;
     const resp = await fetch(`${path}.plain.html`);
     const resp2 = await fetch(fullURL2);
