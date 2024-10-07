@@ -29,7 +29,7 @@ export async function loadFragment(path) {
         "Content-Type": "application/json",
       },
       baseURL: window.location.origin
-    }    
+    });
     const windowLocation = window.location.origin;
     const fullURL2 = `${windowLocation}${path2}`;
     const resp = await fetch(`${path}.plain.html`);
