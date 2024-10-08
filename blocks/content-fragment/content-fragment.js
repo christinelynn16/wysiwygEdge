@@ -28,19 +28,15 @@ export async function loadFragment(path) {
         Authorization: `Bearer ${jwtToken}`,
         Accept: 'application/json',
       });
-      
       // Using the Content Fragment API (part of the AEM OpenAPI)
-      const response = await fetch(`${aemHost}/api/content/fragments/content${fragmentPath}`, {
+      const response = await fetch(`${aemHost}/api/content/fragments/content${path}`, {
         method: 'GET',
         headers,
       });
-      
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      
+      }      
       const resp = await response.json();
-
       if (resp.ok) {
         const main = document.createElement('main');
         main.innerHTML = await resp.text();
