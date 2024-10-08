@@ -35,9 +35,30 @@ export async function loadFragment(path) {
     const resp = await fetch(`${path}.plain.html`);
     const resp2 = await fetch(fullURL2);
     const resp3 = await fetch('https://author-p66217-e731910.adobeaemcloud.com/api/assets/wysiwygEdge/alex.json');
-    const pathEmp = '/content/wysiwygEdge/employeedata';
-    const fullEmp = pathEmp.concat('.json');
-    const resp4 = await fetch(fullEmp, windowLocation);
+    const query = `
+    query {
+      employeefragmentList {
+        items {
+          employeeImage {
+            ... on ImageRef{
+              _path
+            }
+          }
+          employeeName,
+          employeeTitle
+        }
+      }
+    }`;
+    // Define the AEM GraphQL endpoint
+    const endpoint = 'https://author-p66217-e731910.adobeaemcloud.com/content/cq:graphql/wysiwygEdge/endpoint';
+    // Use fetch to send the GraphQL query
+    const qlResp = fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query }) // Send the query as a JSON string
+        });
     /* eslint-enable no-unused-vars */
     if (resp.ok && resp2.ok) {
       const main = document.createElement('main');
