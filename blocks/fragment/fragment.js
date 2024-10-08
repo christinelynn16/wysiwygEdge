@@ -57,8 +57,8 @@ export async function loadFragment(path) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ query }) // Send the query as a JSON string
-        });
+      body: JSON.stringify({ query }), // Send the query as a JSON string
+    });
     /* eslint-enable no-unused-vars */
     if (resp.ok && resp2.ok) {
       const main = document.createElement('main');
