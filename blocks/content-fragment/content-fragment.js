@@ -35,12 +35,11 @@ export async function loadFragment(path) {
       });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
-      }      
+      }
       const resp = await response.json();
       if (resp.ok) {
         const main = document.createElement('main');
         main.innerHTML = await resp.text();
-  
         // reset base path for media to fragment base
         const resetAttributeBase = (tag, attr) => {
           main.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((elem) => {
@@ -49,30 +48,15 @@ export async function loadFragment(path) {
         };
         resetAttributeBase('img', 'src');
         resetAttributeBase('source', 'srcset');
-  
         decorateMain(main);
         await loadBlocks(main);
         return main;
       }
-
     } catch (error) {
       console.error('Error fetching content fragment:', error);
       block.textContent = 'Error loading content fragment';
     }
-    if (resp.ok) {
-      const main = document.createElement('main');
-      main.innerHTML = await resp.text();
-
-      // reset base path for media to fragment base
-      const resetAttributeBase = (tag, attr) => {
-      };
-      resetAttributeBase('img', 'src');
-      resetAttributeBase('source', 'srcset');
-
-      decorateMain(main);
-      await loadSections(main);
-      return main;
-    }
+    
   }
   return null;
 }
