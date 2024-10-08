@@ -35,7 +35,7 @@ export async function loadFragment(path) {
     const resp = await fetch(`${path}.plain.html`);
     const resp2 = await fetch(fullURL2);
     const resp3 = await fetch('https://author-p66217-e731910.adobeaemcloud.com/api/assets/wysiwygEdge/alex.json');
-    const query = `query { employeefragmentList {items { employeeName, employeeTitle, employeeImage{ ... on ImageRef{ _path}}}}}`;
+    const query = 'query { employeefragmentList {items { employeeName, employeeTitle, employeeImage{ ... on ImageRef{ _path}}}}}';
     // Define the AEM GraphQL endpoint
     const endpoint = 'https://author-p66217-e731910.adobeaemcloud.com/content/cq:graphql/wysiwygEdge/endpoint';
     // Use fetch to send the GraphQL query
