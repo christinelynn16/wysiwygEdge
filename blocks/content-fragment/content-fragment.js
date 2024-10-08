@@ -25,23 +25,19 @@ export async function loadFragment(path) {
       // Assuming these values are available in your environment or configuration
       const aemHost = 'https://author-p66217-e731910.adobeaemcloud.com'; // Replace with your AEM host
       const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkNocmlzdGluZSIsImlhdCI6MTUxNjIzOTAyMn0.GQIptpQBJ8GjoZblnyoriVSwhGMs8XPhK2ScZAmsM0Q'; // Replace with your actual JWT token
-      
       const headers = new Headers({
         'Authorization': `Bearer ${jwtToken}`,
         'Accept': 'application/json'
-      });
-  
+      });  
       // Using the Content Fragment API (part of the AEM OpenAPI)
       const response = await fetch(`${aemHost}/api/content/fragments/content${path}`, {
         method: 'GET',
         headers: headers
       });
-  
     } catch (error) {
       console.error('Error fetching content fragment:', error);
       block.textContent = 'Error loading content fragment';
     }
-    
     /* eslint-enable no-unused-vars */
     if (resp.ok && resp2.ok) {
       const main = document.createElement('main');
