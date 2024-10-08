@@ -32,11 +32,8 @@ export async function loadFragment(path) {
       // Using the Content Fragment API (part of the AEM OpenAPI)
       const response = await fetch(`${aemHost}/api/content/fragments/content${path}`, {
         method: 'GET',
-        headers: headers,
+        headers,
       });
-    } catch (error) {
-      console.error('Error fetching content fragment:', error);
-    }
     /* eslint-enable no-unused-vars */
     if (response.ok) {
       const main = document.createElement('main');
@@ -54,7 +51,10 @@ export async function loadFragment(path) {
       decorateMain(main);
       await loadBlocks(main);
       return main;
-    }
+
+    } catch (error) {
+      console.error('Error fetching content fragment:', error);
+    }    }
   }
   return null;
 }
