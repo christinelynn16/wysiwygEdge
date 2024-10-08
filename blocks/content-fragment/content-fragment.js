@@ -25,7 +25,7 @@ export async function loadFragment(path) {
       // Assuming these values are available in your environment or configuration
       const aemHost = 'https://author-p66217-e731910.adobeaemcloud.com'; // Replace with your AEM host
       const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkNocmlzdGluZSIsImlhdCI6MTUxNjIzOTAyMn0.GQIptpQBJ8GjoZblnyoriVSwhGMs8XPhK2ScZAmsM0Q'; // Replace with your actual JWT token
-  
+      
       const headers = new Headers({
         'Authorization': `Bearer ${jwtToken}`,
         'Accept': 'application/json'
