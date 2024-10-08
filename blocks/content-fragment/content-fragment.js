@@ -19,42 +19,45 @@ import {
  */
 export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
-    /* eslint-disable no-unused-vars */
     // eslint-disable-next-line no-param-reassign
     try {
       // Assuming these values are available in your environment or configuration
-      const aemHost = 'https://author-p66217-e731910.adobeaemcloud.com'; // Replace with your AEM host
+      const aemHost = 'https://author-p66217-e731910.adobeaemcloud.com/'; // Replace with your AEM host
       const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkNocmlzdGluZSIsImlhdCI6MTUxNjIzOTAyMn0.GQIptpQBJ8GjoZblnyoriVSwhGMs8XPhK2ScZAmsM0Q'; // Replace with your actual JWT token
       const headers = new Headers({
         Authorization: `Bearer ${jwtToken}`,
         Accept: 'application/json',
       });
+      
       // Using the Content Fragment API (part of the AEM OpenAPI)
-      const response = await fetch(`${aemHost}/api/content/fragments/content${path}`, {
+      const response = await fetch(`${aemHost}/api/content/fragments/content${fragmentPath}`, {
         method: 'GET',
         headers,
       });
-    /* eslint-enable no-unused-vars */
-    if (response.ok) {
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const fragmentData = await response.json();
+    } catch (error) {
+      console.error('Error fetching content fragment:', error);
+      block.textContent = 'Error loading content fragment';
+    }
+    if (resp.ok) {
       const main = document.createElement('main');
-      main.innerHTML = await response.text();
+      main.innerHTML = await resp.text();
 
       // reset base path for media to fragment base
       const resetAttributeBase = (tag, attr) => {
-        main.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((elem) => {
-          elem[attr] = new URL(elem.getAttribute(attr), new URL(path, window.location)).href;
-        });
       };
       resetAttributeBase('img', 'src');
       resetAttributeBase('source', 'srcset');
 
       decorateMain(main);
-      await loadBlocks(main);
+      await loadSections(main);
       return main;
-
-    } catch (error) {
-      console.error('Error fetching content fragment:', error);
-    }    }
+    }
   }
   return null;
 }
