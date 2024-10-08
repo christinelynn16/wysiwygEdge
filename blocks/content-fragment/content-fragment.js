@@ -54,9 +54,7 @@ export async function loadFragment(path) {
       }
     } catch (error) {
       console.error('Error fetching content fragment:', error);
-      block.textContent = 'Error loading content fragment';
     }
-    
   }
   return null;
 }
