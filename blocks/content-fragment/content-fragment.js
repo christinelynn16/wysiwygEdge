@@ -21,38 +21,27 @@ export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
     /* eslint-disable no-unused-vars */
     // eslint-disable-next-line no-param-reassign
-    path = path.replace(/(\.plain)?\.html/, '');
-    const path2a = path.replace('/content/dam', '/api/assets');
-    const path2 = path2a.concat('.json');
-    const myHeaders = new Headers();
-    myHeaders.append('Content-Type', 'application/json');
-    const windowLocation = window.location.origin;
-    const response2 = await fetch(path2, {
-      headers: myHeaders,
-      baseURL: windowLocation,
-    });
-    const fullURL2 = `${windowLocation}${path2}`;
-    const resp = await fetch(`${path}.plain.html`);
-    const resp2 = await fetch(fullURL2);
-    const resp3 = await fetch('https://author-p66217-e731910.adobeaemcloud.com/api/assets/wysiwygEdge/alex.json');
-    fetch('https://author-p66217-e731910.adobeaemcloud.com/api/assets/wysiwygEdge/alex.json')
-      .then((response) => {
-        if (response.redirected) {
-          console.log('Request was redirected to:', response.url);
-        }
-        const resp4 = response;
+    try {
+      // Assuming these values are available in your environment or configuration
+      const aemHost = 'https://author-p66217-e731910.adobeaemcloud.com'; // Replace with your AEM host
+      const jwtToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkNocmlzdGluZSIsImlhdCI6MTUxNjIzOTAyMn0.GQIptpQBJ8GjoZblnyoriVSwhGMs8XPhK2ScZAmsM0Q'; // Replace with your actual JWT token
+  
+      const headers = new Headers({
+        'Authorization': `Bearer ${jwtToken}`,
+        'Accept': 'application/json'
       });
-    const query = 'query { employeefragmentList {items { employeeName, employeeTitle, employeeImage{ ... on ImageRef{ _path}}}}}';
-    // Define the AEM GraphQL endpoint
-    const endpoint = 'https://author-p66217-e731910.adobeaemcloud.com/content/cq:graphql/wysiwygEdge/endpoint';
-    // Use fetch to send the GraphQL query
-    const qlResp = fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ query }), // Send the query as a JSON string
-    });
+  
+      // Using the Content Fragment API (part of the AEM OpenAPI)
+      const response = await fetch(`${aemHost}/api/content/fragments/content${path}`, {
+        method: 'GET',
+        headers: headers
+      });
+  
+    } catch (error) {
+      console.error('Error fetching content fragment:', error);
+      block.textContent = 'Error loading content fragment';
+    }
+    
     /* eslint-enable no-unused-vars */
     if (resp.ok && resp2.ok) {
       const main = document.createElement('main');
