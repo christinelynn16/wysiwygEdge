@@ -170,7 +170,7 @@
         },
         {
           "title": "Content Fragment",
-          "id": "fragment",
+          "id": "cfragment",
           "plugins": {
             "xwalk": {
               "page": {
