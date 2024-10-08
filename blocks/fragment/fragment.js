@@ -36,7 +36,7 @@ export async function loadFragment(path) {
     const resp2 = await fetch(fullURL2);
     const resp3 = await fetch('https://author-p66217-e731910.adobeaemcloud.com/api/assets/wysiwygEdge/alex.json');
     fetch('https://author-p66217-e731910.adobeaemcloud.com/api/assets/wysiwygEdge/alex.json')
-      .then(response => {
+      .then((response) => {
         if (response.redirected) {
           console.log('Request was redirected to:', response.url);
         }
