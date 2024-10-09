@@ -24,7 +24,7 @@ export async function loadFragment(path) {
       const query = new URLSearchParams({
         cursor: 'string',
         limit: '1',
-        path: '/content/dam/wysiwygEdge',
+        path: '/assets/api/wysiwygEdge',
         references: 'direct-hydrated',
       }).toString();
       // eslint-disable-next-line
