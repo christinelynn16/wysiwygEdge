@@ -22,7 +22,7 @@ export async function loadFragment(path) {
     // eslint-disable-next-line no-param-reassign
     try {
       const cfPath = '/assets/api/wysiwygEdge';
-      const cfPath2 = 'content/dam/wysiwygEdge';
+      const cfPath2 = '/content/dam/wysiwygEdge';
       const query = new URLSearchParams({
         cursor: 'string',
         limit: '1',
