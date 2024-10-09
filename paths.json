@@ -1,8 +1,10 @@
 {
   "mappings": [
-    "/content/dam/wysiwygEdge:/api/assets/wysiwygEdge",
     "/content/wysiwygEdge/:/",
-    "/content/wysiwygEdge/configuration:/.helix/config.json",
-    "/content/wysiwygEdge/employeeData:/employeeData.json"
+  ],
+  "includes:" [
+    "/content/wysiwygEdge/",
+    "/content/dam/wysiwygEdge/",
+    "/content/wysiwygEdge/employeeData:/employeeData.json",
   ]
 }
