@@ -50,7 +50,7 @@ export async function loadFragment(path) {
       // eslint-disable-next-line
       const totalURL2 = `https://${bucket}.adobeaemcloud.com/adobe/sites/cf/fragments?${query}`;
       // eslint-disable-next-line
-      const totalURL3 = `https://${bucket}.adobeaemcloud.com/adobe/sites/cf/fragments?${quer3}`;
+      const totalURL3 = `https://${bucket}.adobeaemcloud.com/adobe/sites/cf/fragments?${query3}`;
       const response = await fetch(
         `${totalURL}`,
         {
