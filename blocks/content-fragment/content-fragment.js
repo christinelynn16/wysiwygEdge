@@ -37,9 +37,9 @@ export async function loadFragment(path) {
           headers: {
             Authorization: `Bearer ${token}`,
             Accept: 'application/json', // Ensure you accept JSON responses
-            },
           },
-        );
+        },
+      );
       const data = await response.json();
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
