@@ -36,7 +36,6 @@ export async function loadFragment(path) {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,
-            Accept: 'application/json', // Ensure you accept JSON responses
           },
         },
       );
