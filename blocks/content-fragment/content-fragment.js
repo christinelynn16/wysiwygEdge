@@ -27,14 +27,6 @@ export async function loadFragment(path) {
         path: '/content/dam/wysiwygEdge',
         references: 'direct-hydrated',
       }).toString();
-      const rawResponse = await fetch('https://httpbin.org/post', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ a: 1, b: 'Textual content' }),
-      });
       // eslint-disable-next-line
       const resp3 = await fetch('https://author-p66217-e731910.adobeaemcloud.com/api/assets/wysiwygEdge/alex.json');
       // eslint-disable-next-line
