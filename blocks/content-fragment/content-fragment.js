@@ -70,6 +70,16 @@ export async function loadFragment(path) {
           },
         },
       );
+      // eslint-disable-next-line
+      const response3 = await fetch(
+        `${totalURL}`,
+        {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
       const data = await response.json();
       if (!response.ok && data.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
