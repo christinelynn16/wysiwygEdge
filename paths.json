@@ -1,6 +1,7 @@
 {
   "mappings": [
     "/content/wysiwygEdge/:/",
+    "/content/wysiwygEdge/api/assets:/api/assets",
     "/content/wysiwygEdge/configuration:/.helix/config.json",
     "/content/wysiwygEdge/employeeData:/employeeData.json"
   ]
