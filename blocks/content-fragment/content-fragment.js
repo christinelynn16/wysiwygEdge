@@ -41,7 +41,7 @@ export async function loadFragment(path) {
         },
       );
       const data = await response.json();
-      if (!response.ok) {
+      if (!response.ok && data.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const resp = await response.json();
