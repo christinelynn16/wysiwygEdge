@@ -31,8 +31,9 @@ export async function loadFragment(path) {
       const resp3 = await fetch('https://author-p66217-e731910.adobeaemcloud.com/api/assets/wysiwygEdge/alex.json');
       const bucket = 'author-p66217-e731910';
       const token = 'eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3Mjg0ODg0NDUwNzVfMjA3ZTY1MDktZmRiNi00ZmVlLThlZjMtODU1ZGE4MzBmNmY2X3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJjbS1wNjYyMTctZTczMTkxMC1pbnRlZ3JhdGlvbi0zIiwidXNlcl9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJhcyI6Imltcy1uYTEiLCJhYV9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJjdHAiOjAsImZnIjoiWTNKS1o1SDZGUFA1TUhVS0ZNUVZZSEFBVFE9PT09PT0iLCJtb2kiOiJiMDc3NTUxYiIsImV4cGlyZXNfaW4iOiI4NjQwMDAwMCIsInNjb3BlIjoicmVhZF9wYy5kbWFfYWVtX2FtcyxvcGVuaWQsQWRvYmVJRCxyZWFkX29yZ2FuaXphdGlvbnMsYWRkaXRpb25hbF9pbmZvLnByb2plY3RlZFByb2R1Y3RDb250ZXh0IiwiY3JlYXRlZF9hdCI6IjE3Mjg0ODg0NDUwNzUifQ.FohXYJox4Rhg1Q1-Umcv-M2okU1i3aNoUyD3gNPGNafmeSB26z-oNRWh_hJ-kSLQ3WCF_9k0lpd7XuVkFQFnuPB6PVCg6f9fHFUkiynsO-tWdEWJythjiWM-dxAXAzusm8hCLw3wqt2CmJHbzCAvVIX_ftausuNoqueJUhZBrxrwmWHN5k3w5yn93XMFAXh00qAM9tpSoNLwsAtaXRlknQmNyVXYOBPxBzTqXLbWHYNzusF7yHB2gy2hVOaTNSwBKSM4PUv3h40FsIt_Q_HBQeMFAnMwXywXaEGy2w4yy5f-muA7nxOP0yd_zUajJUht0bxMHffoWz0oPKCCq6TAmw'; // Replace with your actual token
+      const totalURL = `https://${bucket}.adobeaemcloud.com/adobe/sites/cf/fragments?${query}`;
       const response = await fetch(
-        `https://${bucket}.adobeaemcloud.com/adobe/sites/cf/fragments?${query}`,
+        `${totalURL}`,
         {
           method: 'GET',
           headers: {
