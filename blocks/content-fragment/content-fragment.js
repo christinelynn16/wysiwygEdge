@@ -25,7 +25,7 @@ export async function loadFragment(path) {
         cursor: 'string',
         limit: '1',
         path: '/content/dam/wysiwygEdge',
-        references: 'direct-hydrated'
+        references: 'direct-hydrated',
       }).toString();
 
       const bucket = 'author-p66217-e731910';
@@ -34,17 +34,18 @@ export async function loadFragment(path) {
         {
           method: 'GET',
           headers: {
-            Authorization: 'Bearer <YOUR_JWT_HERE>'
-          }
-        }
+            Authorization: 'Bearer eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3Mjg2NzE4NzYyOTBfYWJkODNiMzQtNzdjOS00ODcyLTg1YmItOGI3Y2ZhY2E2MzBlX3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJjbS1wNjYyMTctZTczMTkxMC1pbnRlZ3JhdGlvbi0zIiwidXNlcl9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJhcyI6Imltcy1uYTEiLCJhYV9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJjdHAiOjAsImZnIjoiWTNQSjM1SDZGUFA1TUhVS0ZNUVZZSEFBVFE9PT09PT0iLCJtb2kiOiIyYThjN2MzNyIsImV4cGlyZXNfaW4iOiI4NjQwMDAwMCIsImNyZWF0ZWRfYXQiOiIxNzI4NjcxODc2MjkwIiwic2NvcGUiOiJyZWFkX3BjLmRtYV9hZW1fYW1zLG9wZW5pZCxBZG9iZUlELHJlYWRfb3JnYW5pemF0aW9ucyxhZGRpdGlvbmFsX2luZm8ucHJvamVjdGVkUHJvZHVjdENvbnRleHQifQ.P3uehb2VsbATgDr4-Fb6QQD4lL3g5C8o6IhQFHindcKGngzx9CCEcJbgCcK_QNeaOjWYR9F2-jJg25R9Y_s9--FQTKvhT-lxVA66PWr2mor1qDlRDIPUfaTXimFfpDejIB_jHqhnC4kqZSaugKVJcLLXYhBa6oFiY0jn6n0-1Czh4QWSTAFxXVTeGiyU501izRa4pp5hIEzo_VE6HSBQ9ZHwretnU81ohMhIFXPoHxwDknN0yaEjOwQrvHkXAJFyKuz9SqACeHISBixuENkXr8CyDtEI9joB3SSEUtVZhgy2-mrmKdvXnXBVOlE3INIOmEggQAbmm4dqmf6bpz-zAw',
+          },
+        },
       );
 
       const data = await resp.text();
       console.log(data);
       if (!data.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP error! status: ${data.status}`);
       }
-      const resp2 = await response.json();
+      // eslint-disable-next-line
+      const resp2 = await data.json();
       if (resp.ok) {
         const main = document.createElement('main');
         main.innerHTML = await resp.text();
