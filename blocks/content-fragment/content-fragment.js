@@ -22,8 +22,6 @@ export async function loadFragment(path) {
     // eslint-disable-next-line no-param-reassign
     try {
       const query = new URLSearchParams({
-        cursor: 'string',
-        limit: '1',
         path: '/content/dam/wysiwygEdge',
         references: 'direct-hydrated',
       }).toString();
