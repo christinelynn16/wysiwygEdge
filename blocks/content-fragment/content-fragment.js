@@ -20,33 +20,52 @@ import {
 export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
     // eslint-disable-next-line no-param-reassign
-    try {
-      const query = new URLSearchParams({
-        path: '/content/dam/wysiwygEdge',
-        references: 'direct-hydrated',
-      }).toString();
+    const endpoint = '/content/cq:graphql/wysiwygEdge/endpoint';
 
-      const bucket = 'author-p66217-e731910';
-      const resp = await fetch(
-        `https://${bucket}.adobeaemcloud.com/adobe/sites/cf/fragments?${query}`,
-        {
-          method: 'GET',
-          headers: {
-            Authorization: 'Bearer eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3Mjg2NzE4NzYyOTBfYWJkODNiMzQtNzdjOS00ODcyLTg1YmItOGI3Y2ZhY2E2MzBlX3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJjbS1wNjYyMTctZTczMTkxMC1pbnRlZ3JhdGlvbi0zIiwidXNlcl9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJhcyI6Imltcy1uYTEiLCJhYV9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJjdHAiOjAsImZnIjoiWTNQSjM1SDZGUFA1TUhVS0ZNUVZZSEFBVFE9PT09PT0iLCJtb2kiOiIyYThjN2MzNyIsImV4cGlyZXNfaW4iOiI4NjQwMDAwMCIsImNyZWF0ZWRfYXQiOiIxNzI4NjcxODc2MjkwIiwic2NvcGUiOiJyZWFkX3BjLmRtYV9hZW1fYW1zLG9wZW5pZCxBZG9iZUlELHJlYWRfb3JnYW5pemF0aW9ucyxhZGRpdGlvbmFsX2luZm8ucHJvamVjdGVkUHJvZHVjdENvbnRleHQifQ.P3uehb2VsbATgDr4-Fb6QQD4lL3g5C8o6IhQFHindcKGngzx9CCEcJbgCcK_QNeaOjWYR9F2-jJg25R9Y_s9--FQTKvhT-lxVA66PWr2mor1qDlRDIPUfaTXimFfpDejIB_jHqhnC4kqZSaugKVJcLLXYhBa6oFiY0jn6n0-1Czh4QWSTAFxXVTeGiyU501izRa4pp5hIEzo_VE6HSBQ9ZHwretnU81ohMhIFXPoHxwDknN0yaEjOwQrvHkXAJFyKuz9SqACeHISBixuENkXr8CyDtEI9joB3SSEUtVZhgy2-mrmKdvXnXBVOlE3INIOmEggQAbmm4dqmf6bpz-zAw',
-          },
-        },
-      );
-
-      const data = await resp.text();
-      console.log(data);
-      if (!data.ok) {
-        throw new Error(`HTTP error! status: ${data.status}`);
+    const query = `query getEmployeeByName($name: String) {
+      employeefragmentList(
+        filter: {name: {_expressions: [{value: $name, _operator: CONTAINS, _ignoreCase: true}]}}
+      ) {
+        items {
+          _path
+          _variation
+          Id
+          name
+          description
+          categoryId
+        }
       }
-      // eslint-disable-next-line
-      const resp2 = await data.json();
-      if (resp.ok) {
+    }`;
+
+    const nameStr = 'Stitch';
+
+    const variables = {
+      path: nameStr, // Pass the article path as a parameter
+    };
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3Mjk1MzgxODE5NDJfMDM4N2M5MjgtMTgxNy00YTAzLTg5MTgtNDIwNzdkZjZmZDEzX3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJjbS1wNjYyMTctZTczMTkxMC1pbnRlZ3JhdGlvbi0zIiwidXNlcl9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJhcyI6Imltcy1uYTEiLCJhYV9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJjdHAiOjAsImZnIjoiWTRMUUo1SDZGUFA1TUhVS0ZNUTVZSEFBUzQ9PT09PT0iLCJtb2kiOiJmY2Q3OWUzMCIsImV4cGlyZXNfaW4iOiI4NjQwMDAwMCIsInNjb3BlIjoicmVhZF9wYy5kbWFfYWVtX2FtcyxvcGVuaWQsQWRvYmVJRCxyZWFkX29yZ2FuaXphdGlvbnMsYWRkaXRpb25hbF9pbmZvLnByb2plY3RlZFByb2R1Y3RDb250ZXh0IiwiY3JlYXRlZF9hdCI6IjE3Mjk1MzgxODE5NDIifQ.VdRExi3pM00FgRjQ20WLXgR-ulFHBogsASu9IsUgPExapIARzaxb-08VjFTpbxJ5qd--dYX2qxB9rP6jFMvJsm9xWcSwaINl4EhJM1zHOQUT0ce7SQxrUEv_visUHProvfrUYT9gcZLLTCPj9F4ga-H74Zn-xpxsEwOphjCN_g7jEEJhizvv9BBbC3cyPLDxhlAi4D9z5PesjDZTz9loMwGZirddbzpuGtosRe_0pg0btxGmnBcRmPxbkkJk7YmGizvh_QK5cbbnjtjwdJQtgt-gYntMmMgKeZRgYum5LFiQqAf4_UQoVgUim_j500Ggb2nrtx4fk8RdqYa1VbO-dw',
+        },
+        body: JSON.stringify({ query, variables }),
+      });
+
+      if (!response.ok) {
+        console.error('Failed to fetch data:', response.statusText);
+        return;
+      }
+
+      const result = await response.json();
+      console.log('GraphQL Response:', result);
+      if (result.errors) {
+        console.error('GraphQL Errors:', result.errors);
+        return;
+      }
+      if (response.ok) {
         const main = document.createElement('main');
-        main.innerHTML = await resp.text();
+        main.innerHTML = await response.text();
         // reset base path for media to fragment base
         const resetAttributeBase = (tag, attr) => {
           main.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((elem) => {
@@ -57,13 +76,13 @@ export async function loadFragment(path) {
         resetAttributeBase('source', 'srcset');
         decorateMain(main);
         await loadBlocks(main);
-        return main;
+        // return main;
       }
     } catch (error) {
       console.error('Error fetching content fragment:', error);
     }
   }
-  return null;
+  // return null;
 }
 
 export default async function decorate(block) {
