@@ -38,7 +38,7 @@ export async function loadFragment(path) {
     }`; */
 
     // const nameStr = 'Stitch';
-    const query2 = 'https://author-p66217-e731910.adobeaemcloud.com/graphql/execute.json/wysiwygEdge/getEmployeeByName';
+    const query2 = 'https://author-p66217-e731910.adobeaemcloud.com/graphql/execute.json/wysiwygEdge/getEmployeeByName;name=Stitch';
     try {
       const response2 = await fetch(query2, {
         method: 'POST',
