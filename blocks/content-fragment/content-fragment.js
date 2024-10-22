@@ -40,7 +40,7 @@ export async function loadFragment(path) {
     const nameStr = 'Stitch';
     const query2 = 'https://author-p66217-e731910.adobeaemcloud.com/graphql/execute.json/wysiwygEdge/getEmployeeByName';
     const variables = {
-      path: nameStr, // Pass the article path as a parameter
+      name: nameStr, // Pass the article path as a parameter
     };
     try {
       const response2 = await fetch(query2, {
