@@ -3,4 +3,6 @@ export default function decorate(block) {
   const [clinicId] = block.children;
   // eslint-disable-next-line
   const i = 0;
+  // eslint-disable-next-line
+  const p = i+1;
 }
