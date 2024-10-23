@@ -19,15 +19,22 @@ export async function loadEmployees(clinicId, main) {
         } else {
           // Extract the employeefragmentList
           const { data: { employeefragmentList } } = result;
-          if (employeefragmentList.items && employeefragmentList.items.length > 0) {
+          // Change _path to path in all items
+          const newEmployeefragmentList = employeefragmentList.map((obj) => {
+            // Create a shallow copy
+            const newObj = { ...obj };
             // eslint-disable-next-line
-            employeefragmentList.items[0].path = employeefragmentList.items[0]._path; // Rename
-            // eslint-disable-next-line
-            delete employeefragmentList.items[0]._path; // Remove the original key if needed
-          }
+            if (newObj._path) {
+              // eslint-disable-next-line
+              newObj.path = newObj._path;
+              // eslint-disable-next-line
+              delete newObj._path;
+            }
+            return newObj;
+          });
           const container = document.createElement('div');
           container.className = 'edge-card-block'; // Add a class for styling
-          employeefragmentList.items.forEach((item) => {
+          newEmployeefragmentList.items.forEach((item) => {
             const card = document.createElement('div');
             card.className = 'edge-card'; // Add a class for individual cards
             const title = document.createElement('h3');
