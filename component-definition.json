@@ -185,7 +185,7 @@
         },
         {
           "title": "Employee Cards",
-          "id": "empCards",
+          "id": "employeeCards",
           "plugins": {
             "xwalk": {
               "page": {
