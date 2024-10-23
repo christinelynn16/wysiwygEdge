@@ -19,22 +19,16 @@ export async function loadEmployees(clinicId, main) {
         } else {
           // Extract the employeefragmentList
           const { data: { employeefragmentList } } = result;
-          // Change _path to path in all items
-          const newEmployeefragmentList = employeefragmentList.map((obj) => {
-            // Create a shallow copy
-            const newObj = { ...obj };
+          // Change _path to path in all items using forEach
+          employeefragmentList.items.forEach((item) => {
             // eslint-disable-next-line
-            if (newObj._path) {
-              // eslint-disable-next-line
-              newObj.path = newObj._path;
-              // eslint-disable-next-line
-              delete newObj._path;
-            }
-            return newObj;
+            item.path = item._path; // Create a new key 'path' with the value of '_path'
+            // eslint-disable-next-line
+            delete item._path; // Delete the old '_path' key
           });
           const container = document.createElement('div');
           container.className = 'edge-card-block'; // Add a class for styling
-          newEmployeefragmentList.items.forEach((item) => {
+          employeefragmentList.items.forEach((item) => {
             const card = document.createElement('div');
             card.className = 'edge-card'; // Add a class for individual cards
             const title = document.createElement('h3');
