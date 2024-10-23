@@ -74,5 +74,6 @@ export default async function decorate(block) {
     const main = document.createElement('main');
     // eslint-disable-next-line
     const employeesReturned = await loadEmployees(clinicId, main);
+    block.appendChild(main);
   }
 }
