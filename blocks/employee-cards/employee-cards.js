@@ -17,15 +17,17 @@ export async function loadEmployees(clinicId, main) {
         if (result.errors) {
           console.error('GraphQL Errors:', result.errors);
         } else {
-          if (result.items && result.items.length > 0) {
+          // Extract the employeefragmentList
+          const { data: { employeefragmentList } } = result;
+          if (employeefragmentList.items && employeefragmentList.items.length > 0) {
             // eslint-disable-next-line
-            result.items[0].path = result.items[0]._path; // Rename
+            employeefragmentList.items[0].path = employeefragmentList.items[0]._path; // Rename
             // eslint-disable-next-line
-            delete result.items[0]._path; // Remove the original key if needed
+            delete employeefragmentList.items[0]._path; // Remove the original key if needed
           }
           const container = document.createElement('div');
           container.className = 'edge-card-block'; // Add a class for styling
-          result.items.forEach((item) => {
+          employeefragmentList.items.forEach((item) => {
             const card = document.createElement('div');
             card.className = 'edge-card'; // Add a class for individual cards
             const title = document.createElement('h3');
