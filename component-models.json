@@ -226,5 +226,17 @@
         "variationName": "contentFragmentVariation"
       }
     ]
+  },
+  {
+    "id": "employee-cards",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "clinicId",
+        "label": "Clinic ID",
+        "value": ""
+      }
+    ]
   }
 ]
