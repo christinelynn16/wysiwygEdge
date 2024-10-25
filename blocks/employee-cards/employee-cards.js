@@ -1,5 +1,3 @@
-// const { context, getToken } = require('@adobe/aio-lib-ims');
-
 export async function loadEmployees(clinicId, main) {
   const bearerToken = 'eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3Mjk3ODEyOTc2OTlfY2UwZjZjMjktOGQzMS00MDMyLTk2MGQtNTA0ODVmYzFlYzk2X3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJjbS1wNjYyMTctZTczMTkxMC1pbnRlZ3JhdGlvbi0zIiwidXNlcl9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJhcyI6Imltcy1uYTEiLCJhYV9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJjdHAiOjAsImZnIjoiWTRUTlI1SDZGUFA1TUhVS0ZNUVZZSEFBVFE9PT09PT0iLCJtb2kiOiI3ZTJjNTEzOCIsImV4cGlyZXNfaW4iOiI4NjQwMDAwMCIsImNyZWF0ZWRfYXQiOiIxNzI5NzgxMjk3Njk5Iiwic2NvcGUiOiJyZWFkX3BjLmRtYV9hZW1fYW1zLG9wZW5pZCxBZG9iZUlELHJlYWRfb3JnYW5pemF0aW9ucyxhZGRpdGlvbmFsX2luZm8ucHJvamVjdGVkUHJvZHVjdENvbnRleHQifQ.Zpa1v_uauBpB_eu3jXgxeJMc4Sok8mToeXC9GfRaUH3keiXrSVR8f4ne8Pidb7ZqUZxJzHGRHT9yZB3gqMuKxKuaXIrv9taFA7WG20MSaRIYtZfrNG14lQ8z4v4m_OrWAQx1vPLzZ2evW-ve2mbOg5DTf1GeDCi5t1OSdBYBcowx_l9BOwBKg5llpFxFSCdHgnBg5B-BZLS5ZQEA0P36mMxmu85WzZwOe4Ibzemhh73wggmb1cTKwmWu-xq83LN5QyZ4BelkCH-w6osJM1eFwOeqY60CJwz2tn2hTrTrg7_sf_Ln_1kC9e8Rle5je62eJYWOJJ210BPx60u6dVa4Fw';
 
@@ -13,6 +11,8 @@ export async function loadEmployees(clinicId, main) {
           Authorization: `Bearer ${bearerToken}`,
         },
       });
+      // eslint-disable-next-line
+      const dummy = 0;
       if (!response2.ok) {
         console.error('Failed to fetch data:', response2.statusText);
       } else {
