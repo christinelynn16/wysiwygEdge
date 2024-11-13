@@ -240,6 +240,15 @@
     ]
   },
   {
-    "id": "practice-animals"
+    "id": "practice-animals",
+    "fields": [
+      {
+        "component": "text",
+        "name": "style",
+        "value": "",
+        "label": "Style",
+        "valueType": "string"
+      }
+    ]
   }
 ]
