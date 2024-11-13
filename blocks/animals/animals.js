@@ -15,7 +15,7 @@ function parseURL(url) {
 }
 
 export async function loadAnimals(region, title, main) {
-  const bearerToken = 'eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3MzE0NzE2OTE3NDVfMzE1ZTRkNzgtNTIyOS00ZmRjLWFiYTYtYjgyOThmOTVmYjUxX3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJjbS1wNjYyMTctZTczMTkxMC1pbnRlZ3JhdGlvbi0zIiwidXNlcl9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJhcyI6Imltcy1uYTEiLCJhYV9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJjdHAiOjAsImZnIjoiWTZLT0w1SDZGUFA1TUhVS0ZNUVZZSEFBVFE9PT09PT0iLCJtb2kiOiI2Y2U2OTZmZSIsImV4cGlyZXNfaW4iOiI4NjQwMDAwMCIsInNjb3BlIjoicmVhZF9wYy5kbWFfYWVtX2FtcyxvcGVuaWQsQWRvYmVJRCxyZWFkX29yZ2FuaXphdGlvbnMsYWRkaXRpb25hbF9pbmZvLnByb2plY3RlZFByb2R1Y3RDb250ZXh0IiwiY3JlYXRlZF9hdCI6IjE3MzE0NzE2OTE3NDUifQ.WX9h8IgVhY7YR8jP9UrJ1XMVAu2lFRJ-WomW7i_JfzHyDQCw9bKAyC-ZrjZ4pZTTrIVfBl8HgwkSrRKMJ10k0AzTRaGl-CTaxxo6RFSmn2USHxNQwPiMU76rcZq87V4ZxnwY0Kr_595zY9Pqgajg0gFqbXcMgSJaUkfEVEdTCwdxIIRfc4dNss2HsuG7T3nRyhHcijANMrn7rzuWuYfZ7yuXiCxCTWz0dnXjNx8Tzvrv8LyAn5zsZQuBqWbL4VctKT6Yn9P7yZbfNSvN0bMrwNE06cp9v8Yg09SySkFJ8rwmHE-Z_bR-lAprnM7qxg0eHGLcRp37XhhD_J6cvwO36A';
+  const bearerToken = 'eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3MzE1MTMxNTQ2MzhfNjE3MjIyZmUtZDdjZS00ZDlkLTk2MjgtNzJlYmQ2ZTkwMDNjX3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJjbS1wNjYyMTctZTczMTkxMC1pbnRlZ3JhdGlvbi0zIiwidXNlcl9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJhcyI6Imltcy1uYTEiLCJhYV9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJjdHAiOjAsImZnIjoiWTZMWlI1SDZGUFA1TUhVS0ZNUVZZSEFBVFE9PT09PT0iLCJtb2kiOiI4ZmJmZGQwYSIsImV4cGlyZXNfaW4iOiI4NjQwMDAwMCIsImNyZWF0ZWRfYXQiOiIxNzMxNTEzMTU0NjM4Iiwic2NvcGUiOiJyZWFkX3BjLmRtYV9hZW1fYW1zLG9wZW5pZCxBZG9iZUlELHJlYWRfb3JnYW5pemF0aW9ucyxhZGRpdGlvbmFsX2luZm8ucHJvamVjdGVkUHJvZHVjdENvbnRleHQifQ.PtNBShEDja2ltcLjus1DXi1nAqmXbgOvJMVz2SoPIzskBYMJnBgpqx95x5iH2zMZarkMVeu0PdtMnpDD1QqUodQKpxC3oD9WQHU7bDUjF9Q1CQ9BoUXta1vtJ5i4Yd9fQs25MiIAhc30bzIKE5nnIZB2nvNQODk-tReF1aea2mfNNna9bCzMBf2p2u_zgQWEaJPLUTf9CnrLMpP7ajIJxrHkNXDnJwNzsn_2TR2pqkl9vsNuuqBDA4O9H3rcCo6scq11QawWQbYPLyahUs5b2qQq2BCoon3zQmYj1CglylqNZS1t2KWYRvYyXwPOv7vmQFqGlr-D4S45R5hFzjQVeA';
   if (title) {
     const query = `https://author-p66217-e731910.adobeaemcloud.com/graphql/execute.json/wysiwygEdge/getPracticeAnimals;region=${region};title=${title}`;
     try {
@@ -41,17 +41,17 @@ export async function loadAnimals(region, title, main) {
 
           // Create the container div
           const container = document.createElement('div');
-          container.className = 'practice__animals-treated-container';
+          container.className = 'practice-animals-treated-container';
           container.innerHTML = 'Animals Treated';
 
           // Create the unordered list
           const ul = document.createElement('ul');
-          ul.className = 'practice__animals-treated';
+          ul.className = 'practice-animals-treated';
 
           // Populate the list with animal items
           animalList.forEach((animal) => {
             const li = document.createElement('li');
-            li.className = 'practice__animal label-sm';
+            li.className = 'practice-animal label-sm';
             li.textContent = animal;
             ul.appendChild(li);
           });
