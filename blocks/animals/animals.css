@@ -1,10 +1,10 @@
-.practice__animals-treated-container {
+.practice-animals-treated-container {
     padding: 20px;
     text-align: center;
     font-family: Arial, sans-serif;
 }
 
-.practice__animals-treated-container > ul.practice__animals-treated {
+.practice-animals-treated-container > ul.practice-animals-treated {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -14,7 +14,7 @@
     gap: 10px; /* Spacing between the items */
 }
 
-.practice__animals-treated-container > ul.practice__animals-treated > li.practice__animal {
+.practice-animals-treated-container > ul.practice-animals-treated > li.practice-animal {
     padding: 10px 20px;
     border: 2px solid black;
     border-radius: 30px;
@@ -24,16 +24,16 @@
     font-size: 14px;
     font-weight: bold;
     color: black;
-    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    background-color: rgba(255 255 255 50%); /* Transparent white background */
     white-space: nowrap; /* Prevents text from wrapping */
     transition: background-color 0.3s ease;
 }
 
-.practice__animals-treated-container > ul.practice__animals-treated > li.practice__animal:hover {
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly less transparent on hover */
+.practice-animals-treated-container > ul.practice-animals-treated > li.practice-animal:hover {
+    background-color: rgba(255 255 255 80%); /* Slightly less transparent on hover */
 }
 
-.tabs__showall {
+.tabs-showall {
     display: inline-block;
     padding: 8px 16px;
     margin-top: 10px;
