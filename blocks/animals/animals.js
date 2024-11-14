@@ -1,4 +1,4 @@
-function parseURL(url) {
+/* function parseURL(url) {
   // Split the URL by slashes
   const parts = url.split('/');
 
@@ -12,7 +12,7 @@ function parseURL(url) {
     return { region, group, clinic };
   }
   return null;
-}
+} */
 
 export async function loadAnimals(region, title, main) {
   const bearerToken = 'eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3MzE1MTMxNTQ2MzhfNjE3MjIyZmUtZDdjZS00ZDlkLTk2MjgtNzJlYmQ2ZTkwMDNjX3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJjbS1wNjYyMTctZTczMTkxMC1pbnRlZ3JhdGlvbi0zIiwidXNlcl9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJhcyI6Imltcy1uYTEiLCJhYV9pZCI6IjI1QTMxRTMxNjcwNTY4QUUwQTQ5NUZBMUB0ZWNoYWNjdC5hZG9iZS5jb20iLCJjdHAiOjAsImZnIjoiWTZMWlI1SDZGUFA1TUhVS0ZNUVZZSEFBVFE9PT09PT0iLCJtb2kiOiI4ZmJmZGQwYSIsImV4cGlyZXNfaW4iOiI4NjQwMDAwMCIsImNyZWF0ZWRfYXQiOiIxNzMxNTEzMTU0NjM4Iiwic2NvcGUiOiJyZWFkX3BjLmRtYV9hZW1fYW1zLG9wZW5pZCxBZG9iZUlELHJlYWRfb3JnYW5pemF0aW9ucyxhZGRpdGlvbmFsX2luZm8ucHJvamVjdGVkUHJvZHVjdENvbnRleHQifQ.PtNBShEDja2ltcLjus1DXi1nAqmXbgOvJMVz2SoPIzskBYMJnBgpqx95x5iH2zMZarkMVeu0PdtMnpDD1QqUodQKpxC3oD9WQHU7bDUjF9Q1CQ9BoUXta1vtJ5i4Yd9fQs25MiIAhc30bzIKE5nnIZB2nvNQODk-tReF1aea2mfNNna9bCzMBf2p2u_zgQWEaJPLUTf9CnrLMpP7ajIJxrHkNXDnJwNzsn_2TR2pqkl9vsNuuqBDA4O9H3rcCo6scq11QawWQbYPLyahUs5b2qQq2BCoon3zQmYj1CglylqNZS1t2KWYRvYyXwPOv7vmQFqGlr-D4S45R5hFzjQVeA';
@@ -83,11 +83,11 @@ export default async function decorate(block) {
   // eslint-disable-next-line
 // const [clinicId] = block.children;
 
-  //const pagePath = window.location.pathname;
+  // const pagePath = window.location.pathname;
 
-  //const { region, title } = parseURL(pagePath);
-  const region = "yorkshire-and-humber";
-  const title = "battle-flatts-veterinary-clinic-norton";
+  // const { region, title } = parseURL(pagePath);
+  const region = 'yorkshire-and-humber';
+  const title = 'battle-flatts-veterinary-clinic-norton';
 
   if (title) {
     const main = document.createElement('main');
