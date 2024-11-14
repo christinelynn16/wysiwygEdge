@@ -83,9 +83,11 @@ export default async function decorate(block) {
   // eslint-disable-next-line
 // const [clinicId] = block.children;
 
-  const pagePath = window.location.pathname;
+  //const pagePath = window.location.pathname;
 
-  const { region, title } = parseURL(pagePath);
+  //const { region, title } = parseURL(pagePath);
+  const region = "yorkshire-and-humber";
+  const title = "battle-flatts-veterinary-clinic-norton";
 
   if (title) {
     const main = document.createElement('main');
