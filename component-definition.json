@@ -200,14 +200,14 @@
         },
         {
           "title": "Practice Animals",
-          "id": "practiceAnimals",
+          "id": "animals",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Practice Animals",
-                  "model": "practice-animals"
+                  "model": "animals"
                 }
               }
             }

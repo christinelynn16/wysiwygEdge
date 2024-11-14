@@ -240,7 +240,7 @@
     ]
   },
   {
-    "id": "practice-animals",
+    "id": "animals",
     "fields": [
       {
         "component": "text",
